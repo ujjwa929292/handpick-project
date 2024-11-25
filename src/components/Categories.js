@@ -60,10 +60,10 @@ const Categories = () => {
       <div className="max-w-7xl mx-auto">
         {/* Category Section */}
         <h1 className="text-4xl font-bold text-[#a55e3f] mb-10 flex items-center justify-center">
-          <span className="bg-[#a55e3f] text-white rounded-full w-16 h-16 flex items-center justify-center">
+          <span className="bg-[#a55e3f] text-white rounded-full w-20 h-20 flex items-center justify-center">
             Cat
           </span>
-          <span className="ml-2">egories</span>
+          <span className="ml-1">egories</span>
         </h1>
         <div className="overflow-x-auto">
           <div className="flex gap-x-6 py-4 justify-center">

@@ -1,22 +1,18 @@
 import React from "react";
 import Header from "../components/Header";
-import Banner from "../components/Banner";
-import Categories from "../components/Categories";
+import Posts from "../components/Posts";
 import Footer from "../components/Footer";
-import NewsLetter from "../components/NewsLetter";
 
-function Home() {
+function Blogs() {
   return (
     <div className="relative min-h-screen flex flex-col">
       <Header />
       <main className="flex-1 mt-16 overflow-auto">
-        <Banner />
-        <Categories />
-        <NewsLetter />
+        <Posts />
       </main>
       <Footer />
     </div>
   );
 }
 
-export default Home;
+export default Blogs;

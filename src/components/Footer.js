@@ -149,7 +149,7 @@ export default function Footer() {
         </div>
 
         {/* Payment Methods */}
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h4 className="text-sm font-semibold text-gray-400 mb-2">
               We Accept
@@ -167,7 +167,7 @@ export default function Footer() {
               ))}
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* Footer Bottom */}
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
