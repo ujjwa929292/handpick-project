@@ -7,83 +7,46 @@ import {
   Mail,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import apple from "../assets/apple.png";
-import amex from "../assets/amex.png";
-import master from "../assets/master.png";
-import paypal from "../assets/paypal.png";
-import visa from "../assets/visa.png";
-import google from "../assets/google.png";
 
 export default function Footer() {
-  const footerSections = [
-    {
-      title: "About us",
-      links: [
-        { to: "#", label: "Our Product" },
-        { to: "#", label: "Documentation" },
-        { to: "#", label: "Our Services" },
-        { to: "#", label: "Get Started Us" },
-        { to: "#", label: "Contact Us" },
-      ],
-    },
-    {
-      title: "Quick links",
-      links: [
-        { to: "#", label: "Market Place" },
-        { to: "#", label: "Documentation" },
-        { to: "#", label: "Customers" },
-        { to: "#", label: "Carriers" },
-        { to: "#", label: "Our Blog" },
-      ],
-    },
-    {
-      title: "Top Cities",
-      links: [
-        { to: "#", label: "Manhattan" },
-        { to: "#", label: "Los Angeles" },
-        { to: "#", label: "Houston" },
-        { to: "#", label: "Chicago" },
-        { to: "#", label: "Alabama" },
-      ],
-    },
+  const footerLinks = [
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Categories", href: "/categories" },
+    { name: "Products", href: "/products" },
+    { name: "Blog", href: "/blogs" },
+    { name: "Contact", href: "/contact" },
   ];
 
-  const paymentMethods = [
-    { src: amex, alt: "American Express" },
-    { src: apple, alt: "Apple Pay" },
-    { src: google, alt: "Google Pay" },
-    { src: master, alt: "MasterCard" },
-    { src: paypal, alt: "PayPal" },
-    { src: visa, alt: "Visa" },
+  const socialLinks = [
+    { icon: <Facebook />, href: "#", label: "Facebook" },
+    { icon: <Twitter />, href: "#", label: "Twitter" },
+    { icon: <Instagram />, href: "#", label: "Instagram" },
+    { icon: <LinkedIn />, href: "#", label: "LinkedIn" },
   ];
 
   return (
     <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4 mt-10">
-        {/* Logo and Description */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="md:col-span-1">
+      <div className="container mx-auto px-4">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand Info */}
+          <div>
             <Link to="/" className="flex items-center mb-6">
-              <span className="text-[#a55e3f] text-3xl font-bold mr-2">L</span>
-              <span className="text-3xl font-bold">istee</span>
+              <span className="text-[#a55e3f] text-3xl font-bold mr-2">Li</span>
+              <span className="text-3xl font-bold">stee</span>
             </Link>
             <p className="text-gray-400 mb-6">
-              Discover the finest hand-crafted products from around the world,
-              curated just for you.
+              Discover curated collections of authentic, handcrafted products
+              from artisans around the globe.
             </p>
-            {/* Social Media Links */}
             <div className="flex space-x-4">
-              {[
-                { icon: <Facebook />, label: "Facebook" },
-                { icon: <Twitter />, label: "Twitter" },
-                { icon: <Instagram />, label: "Instagram" },
-                { icon: <LinkedIn />, label: "LinkedIn" },
-              ].map(({ icon, label }) => (
+              {socialLinks.map(({ icon, href, label }) => (
                 <a
                   key={label}
-                  href="/"
-                  className="text-gray-400 hover:text-[#a55e3f] transition duration-300"
+                  href={href}
                   aria-label={label}
+                  className="text-gray-400 hover:text-[#a55e3f] transition duration-300"
                 >
                   {icon}
                 </a>
@@ -91,99 +54,99 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Footer Links */}
-          <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-4 gap-8">
-            {footerSections.map(({ title, links }) => (
-              <div key={title}>
-                <h3 className="text-lg font-semibold mb-4 text-[#a55e3f]">
-                  {title}
-                </h3>
-                <ul className="space-y-2">
-                  {links.map(({ to, label }) => (
-                    <li key={label}>
-                      <Link
-                        to={to}
-                        className="text-gray-400 hover:text-[#a55e3f] transition duration-300"
-                      >
-                        {label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          {/* Quick Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-[#a55e3f]">
+              Quick Links
+            </h3>
+            <ul className="space-y-2">
+              {footerLinks.map(({ name, href }) => (
+                <li key={name}>
+                  <Link
+                    to={href}
+                    className="text-gray-400 hover:text-[#a55e3f] transition duration-300"
+                  >
+                    {name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            {/* Communication Section */}
-            <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#a55e3f]">
-                Communication
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex items-center">
-                  <Phone className="mr-2 text-[#a55e3f]" />
-                  <span className="text-gray-400">Call Us</span>
-                </li>
-                <li>
-                  <a
-                    href="tel:+017123456789"
-                    className="text-white hover:text-[#a55e3f] transition duration-300"
-                  >
-                    +017 123 456 78
-                  </a>
-                </li>
-                <li className="flex items-center mt-4">
-                  <Mail className="mr-2 text-[#a55e3f]" />
-                  <span className="text-gray-400">Send Message</span>
-                </li>
-                <li>
-                  <a
-                    href="mailto:listee@example.com"
-                    className="text-white hover:text-[#a55e3f] transition duration-300"
-                  >
-                    listee@example.com
-                  </a>
-                </li>
-              </ul>
-            </div>
+          {/* Newsletter Subscription */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-[#a55e3f]">
+              Stay Updated
+            </h3>
+            <p className="text-gray-400 mb-4">
+              Subscribe to our newsletter to receive the latest updates and
+              exclusive offers.
+            </p>
+            <form className="flex flex-col space-y-4">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="px-4 py-2 rounded bg-gray-800 text-gray-400 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#a55e3f]"
+              />
+              <button className="bg-[#a55e3f] hover:bg-[#88462e] text-white py-2 px-4 rounded transition duration-300">
+                Subscribe
+              </button>
+            </form>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-[#a55e3f]">
+              Get in Touch
+            </h3>
+            <ul className="space-y-3">
+              <li className="flex items-center">
+                <Phone className="mr-2 text-[#a55e3f]" />
+                <span className="text-gray-400">+017 123 456 78</span>
+              </li>
+              <li className="flex items-center">
+                <Mail className="mr-2 text-[#a55e3f]" />
+                <a
+                  href="mailto:listee@example.com"
+                  className="text-gray-400 hover:text-[#a55e3f] transition duration-300"
+                >
+                  listee@example.com
+                </a>
+              </li>
+              <li className="mt-4">
+                <h4 className="text-[#a55e3f] font-semibold">Our Address:</h4>
+                <p className="text-gray-400">
+                  123 Handcrafted Street, Artisan City, Country
+                </p>
+              </li>
+            </ul>
           </div>
         </div>
-
-        {/* Payment Methods */}
-        {/* <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h4 className="text-sm font-semibold text-gray-400 mb-2">
-              We Accept
-            </h4>
-            <div className="flex space-x-2">
-              {paymentMethods.map(({ src, alt }) => (
-                <img
-                  key={alt}
-                  src={src}
-                  alt={`${alt} logo`}
-                  width={40}
-                  height={30}
-                  className="bg-white rounded"
-                />
-              ))}
-            </div>
-          </div>
-        </div> */}
 
         {/* Footer Bottom */}
         <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            All Copyrights Reserved © 2023 - Listee.
+            © 2023 Listee. All Rights Reserved.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            {["Privacy", "Faq", "Terms"].map((label) => (
-              <Link
-                key={label}
-                to="#"
-                className="text-gray-400 hover:text-[#a55e3f] text-sm transition duration-300"
-              >
-                {label}
-              </Link>
-            ))}
+            <Link
+              to="/privacy"
+              className="text-gray-400 hover:text-[#a55e3f] text-sm transition duration-300"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              to="/faq"
+              className="text-gray-400 hover:text-[#a55e3f] text-sm transition duration-300"
+            >
+              FAQ
+            </Link>
+            <Link
+              to="/terms"
+              className="text-gray-400 hover:text-[#a55e3f] text-sm transition duration-300"
+            >
+              Terms & Conditions
+            </Link>
           </div>
         </div>
       </div>
